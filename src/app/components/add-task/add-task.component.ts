@@ -7,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
   text: string = '';
-  day: string = '';
+  date: string = '';
   reminder: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {}
+  onSubmit() {
+    if (!this.text) {
+      alert('Please add a task');
+      return;
+    }
+
+    const newTask = {
+      text: this.text,
+      day: this.date,
+      reminder: this.reminder,
+    };
+
+    //todo: emit event
+
+    this.text = '';
+    this.date = '';
+    this.reminder = false;
+  }
 }
